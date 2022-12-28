@@ -262,7 +262,7 @@ Attaching package: ‘TH.data’
 The following object is masked from ‘package:MASS’:
 
     geyser
-
+```
 > library(tidyverse)
 ── Attaching packages ─────────────────────────────────────────────────────────── tidyverse 1.3.2 ──
 ✔ ggplot2 3.3.5      ✔ purrr   0.3.4 
@@ -273,21 +273,22 @@ The following object is masked from ‘package:MASS’:
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ✖ dplyr::select() masks MASS::select()
+```
 > mystoredata.df <-read.table(path,
 +                             header = TRUE,
 +                             sep = ",",
 +                             stringsAsFactors = TRUE)
+```
 > dim(mystoredata.df)
 [1] 216   5
+```
 > aggregate(salesthisyear ~ segment, data=mystoredata.df, mean)
        segment salesthisyear
 1     CONSUMER      9178.078
 2 PROFESSIONAL      6040.267
 3    SPECIALTY      3804.241
 4        VALUE      6031.467
-> aggreate (salesthisyear ~ storeid, data=mystoredata.df, mean)
-Error in aggreate(salesthisyear ~ storeid, data = mystoredata.df, mean) : 
-  could not find function "aggreate"
+```
 > aggregate (salesthisyear ~ storeid, data=mystoredata.df, mean)
       storeid salesthisyear
 1 bluecollar1      5825.139
@@ -296,11 +297,13 @@ Error in aggreate(salesthisyear ~ storeid, data = mystoredata.df, mean) :
 4    highend2     10737.917
 5   hispanic1      8163.167
 6   hispanic2      4502.667
+```
 > aggregate (salesthisyear ~ chainclass, data=mystoredata.df, mean)
   chainclass salesthisyear
 1 bluecollar      7108.819
 2    highend      7443.611
 3   hispanic      6332.917
+```
 > store.aov.salesthisyear <- aov(salesthisyear ~ -1 + storeid, data=mystoredata.df)
 > anova(store.aov.salesthisyear)
 Analysis of Variance Table
@@ -311,6 +314,7 @@ storeid     6 1.1657e+10 1942783124  33.343 < 2.2e-16 ***
 Residuals 210 1.2236e+10   58266032                      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
 > glht(store.aov.salesthisyear)
 
 	 General Linear Hypotheses
@@ -323,12 +327,15 @@ storeidhighend1 == 0        4149
 storeidhighend2 == 0       10738
 storeidhispanic1 == 0       8163
 storeidhispanic2 == 0       4503
-
+```
 > par(mar=c(6,10,2,2))
+```
 > plot (glht(store.aov.salesthisyear),
 +       xlab="Sales this Year",
 +       main="Store Sales (95% CI)")
+```
 > segment.aov.salesthisyear <- aov(salesthisyear ~ -1 + segment, data=mystoredata.df)
+```
 > anova(segment.aov.salesthisyear)
 Analysis of Variance Table
 
@@ -338,6 +345,7 @@ segment     4 1.1560e+10 2889897584  49.676 < 2.2e-16 ***
 Residuals 212 1.2333e+10   58174411                      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
 > glht(segment.aov.salesthisyear)
 
 	 General Linear Hypotheses
@@ -348,12 +356,15 @@ segmentCONSUMER == 0         9178
 segmentPROFESSIONAL == 0     6040
 segmentSPECIALTY == 0        3804
 segmentVALUE == 0            6031
-
+```
 > par(mar=c(6,10,2,2))
+```
 > plot (glht(segment.aov.salesthisyear),
 +       xlab="Sales this Year",
 +       main="Store Sales (95% CI)")
+```
 > chainclass.aov.salesthisyear <- aov(salesthisyear ~ -1 + chainclass, data=mystoredata.df)
+```
 > anova(chainclass.aov.salesthisyear)
 Analysis of Variance Table
 
@@ -363,6 +374,7 @@ chainclass   3 1.0515e+10 3505163851  55.812 < 2.2e-16 ***
 Residuals  213 1.3377e+10   62803163                      
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
 > glht(chainclass.aov.salesthisyear)
 
 	 General Linear Hypotheses
@@ -372,11 +384,13 @@ Linear Hypotheses:
 chainclassbluecollar == 0     7109
 chainclasshighend == 0        7444
 chainclasshispanic == 0       6333
-
+```
 > par(mar=c(6,10,2,2))
+```
 > plot (glht(chainclass.aov.salesthisyear),
 +       xlab="Sales this Year",
 +       main="Store Sales (95% CI)")
+```
 > t.test(salesthisyear ~ storeid, data=subset(mystoredata.df, chainclass == "hispanic"))
 
 	Welch Two Sample t-test
@@ -389,7 +403,7 @@ alternative hypothesis: true difference in means between group hispanic1 and gro
 sample estimates:
 mean in group hispanic1 mean in group hispanic2 
                8163.167                4502.667 
-
+```
 > t.test(salesthisyear ~ storeid, data=subset(mystoredata.df, chainclass == "highend"))
 
 	Welch Two Sample t-test
@@ -402,7 +416,7 @@ alternative hypothesis: true difference in means between group highend1 and grou
 sample estimates:
 mean in group highend1 mean in group highend2 
               4149.306              10737.917 
-
+```
 > t.test(salesthisyear ~ storeid, data=subset(mystoredata.df, chainclass == "bluecollar"))
 
 	Welch Two Sample t-test
@@ -415,24 +429,26 @@ alternative hypothesis: true difference in means between group bluecollar1 and g
 sample estimates:
 mean in group bluecollar1 mean in group bluecollar2 
                  5825.139                  8392.500 
-
+```
 > path <- file.path("~", "Documents/Niagara University/Social Media Marketing - MKG 637IS/R Case 4/scannerdataset.csv")
+```
 > myscannerdata.df <- read.table(path,
 +                                header = TRUE,
 +                                sep = ",",
 +                                stringsAsFactors=FALSE)
-Error in file(file, "rt") : cannot open the connection
-In addition: Warning message:
-In file(file, "rt") :
-  cannot open file '/Users/maiuyenvo/Documents/Niagara University/Social Media Marketing - MKG 637IS/R Case 4/scannerdataset.csv': No such file or directory
+```
 > path <- file.path("~", "Documents/Niagara University/Social Media Marketing - MKG 637IS/R Case 4/scannerdataset.csv")
+```
 > myscannerdata.df <- read.table(path,
 +                                header = TRUE,
 +                                sep = ",",
 +                                stringsAsFactors=FALSE)
+```
 > dim(myscannerdata.df)
 [1] 548573      7
+```
 > model1 <- lm(UNITS ~ PR + FA + FAPLUS + FB + FC + DFLAG, data=myscannerdata.df)
+```
 > summary(model1)
 
 Call:
@@ -457,8 +473,9 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 24.06 on 548566 degrees of freedom
 Multiple R-squared:  0.1028,	Adjusted R-squared:  0.1028 
 F-statistic: 1.047e+04 on 6 and 548566 DF,  p-value: < 2.2e-16
-
+```
 > model2 <- lm(UNITS ~ FA + DFLAG, data=myscannerdata.df)
+```
 > summary(model2)
 
 Call:
