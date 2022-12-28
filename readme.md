@@ -1,5 +1,6 @@
 
 ## Case 4 - R Script
+```
 path <- file.path("~", "Documents/Niagara University/Social Media Marketing - MKG 637IS/R Case 4/storeclustercombined.csv")
 library(multcomp)
 library(tidyverse)
@@ -47,7 +48,7 @@ model2 <- lm(UNITS ~ FA + DFLAG, data=myscannerdata.df)
 summary(model2)
 
 ## Output 
-
+```
  > install.packages(c("multcomp", "tidyverse"))
 also installing the dependencies ‘sys’, ‘sass’, ‘cachem’, ‘memoise’, ‘lifecycle’, ‘rappdirs’, ‘askpass’, ‘bslib’, ‘jquerylib’, ‘tinytex’, ‘assertthat’, ‘blob’, ‘cli’, ‘DBI’, ‘dplyr’, ‘vctrs’, ‘gargle’, ‘uuid’, ‘curl’, ‘ids’, ‘mime’, ‘openssl’, ‘timechange’, ‘rlang’, ‘fs’, ‘rmarkdown’, ‘selectr’, ‘dbplyr’, ‘dtplyr’, ‘googledrive’, ‘googlesheets4’, ‘httr’, ‘lubridate’, ‘modelr’, ‘reprex’, ‘rvest’, ‘xml2’
 
