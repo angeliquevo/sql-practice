@@ -305,6 +305,7 @@ The following object is masked from ‘package:MASS’:
 3   hispanic      6332.917
 ```
 > store.aov.salesthisyear <- aov(salesthisyear ~ -1 + storeid, data=mystoredata.df)
+```
 > anova(store.aov.salesthisyear)
 Analysis of Variance Table
 
