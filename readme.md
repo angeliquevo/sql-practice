@@ -281,6 +281,7 @@ The following object is masked from ‘package:MASS’:
 ```
 > dim(mystoredata.df)
 [1] 216   5
+
 ```
 > aggregate(salesthisyear ~ segment, data=mystoredata.df, mean)
        segment salesthisyear
@@ -288,6 +289,7 @@ The following object is masked from ‘package:MASS’:
 2 PROFESSIONAL      6040.267
 3    SPECIALTY      3804.241
 4        VALUE      6031.467
+
 ```
 > aggregate (salesthisyear ~ storeid, data=mystoredata.df, mean)
       storeid salesthisyear
@@ -297,6 +299,7 @@ The following object is masked from ‘package:MASS’:
 4    highend2     10737.917
 5   hispanic1      8163.167
 6   hispanic2      4502.667
+
 ```
 > aggregate (salesthisyear ~ chainclass, data=mystoredata.df, mean)
   chainclass salesthisyear
@@ -305,6 +308,7 @@ The following object is masked from ‘package:MASS’:
 3   hispanic      6332.917
 ```
 > store.aov.salesthisyear <- aov(salesthisyear ~ -1 + storeid, data=mystoredata.df)
+
 ```
 > anova(store.aov.salesthisyear)
 Analysis of Variance Table
